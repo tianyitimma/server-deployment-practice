@@ -3,7 +3,7 @@
 const express = require('express');
 const app = express();
 
-const person = require('./routes/person.js');
+//const person = require('./routes/person.js');
 //const talk = require('./routes/talk.js');
 const logger = require('./middleware/logger');
 const validator = require('./middleware/validator.js');
@@ -13,19 +13,26 @@ const handle500 = require('./error-handlers/500');
 
 app.use(express.json());
 app.use(logger);
-app.use(handle404);
-app.use(handle500);
+
+
 
 //app.post('/talk', talk);
-app.get('/person?name=tim', validator, person);
+app.get('/person', validator, (req, res) =>{
+  res.status(200);
+  res.send({ name: req.query.name});
+});
+
+app.use(handle500);
+app.use(handle404);
 
 
 
 
-
-const PORT = process.env.PORT || 3000;
+//const PORT = process.env.PORT || 3000;
 
 module.exports = {
   app,
-  start: app.listen(PORT, () => console.log('Server is up ', PORT)),
+  start: (port) => {
+    app.listen(port, () => console.log('Server is up ', port));
+  },
 };
