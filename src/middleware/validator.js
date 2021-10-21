@@ -2,13 +2,15 @@
 
 module.exports = function (req, res, next) {
   
-  const name = req.param;
+  const name = req.query.name;
+  //console.log(JSON.stringify(req));
   
-  if (!req.query.exists()) {
-    next('500/No-Name');
-  } else {
-    res.json({'name': name});
+  console.log(req.query);
+  if (name) {
     next();
+  } else {
+
+    next('500/No-Name');
   }
 
 };
