@@ -1,6 +1,6 @@
 # Express Server
 
-Created by Jacob Knaack
+Created by Tim Ma
 
 ## Installation
 
@@ -14,15 +14,8 @@ Created by Jacob Knaack
 
 ## Routes
 
-* HTTP GET
-  * Path: https://timma-server-deploy-prod.herokuapp.com/repeat
-    * responds with the last string used in post route `/talk`.
-
-* HTTP POST
-  * Path: https://timma-server-deploy-prod.herokuapp.com/talk
-    * Accepts a string.
-    * responds with a string in all caps.
-
+* Heroku Link
+  * Path: https://timma-server-deploy-prod.herokuapp.com/
 
 
 ![Lab 1 UML](lab1-uml.png)
